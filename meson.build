@@ -126,7 +126,10 @@ root_inc = include_directories('.')
 
 subdir('atk')
 subdir('tests')
-subdir('po')
+
+if find_program('xgettext', required : false).found()
+  subdir('po')
+endif
 
 if get_option('docs')
   subdir('docs')
